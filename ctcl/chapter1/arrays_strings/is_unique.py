@@ -1,3 +1,5 @@
+# assuming ascii set has only 128 characters
+# space complexity is high, O(n) time complexity
 def ascii_approach(word: str, ascii_set=128) -> bool:
     if len(word) > ascii_set:
         return False
@@ -10,6 +12,8 @@ def ascii_approach(word: str, ascii_set=128) -> bool:
     return True
 
 
+# Best Case : O(n) but limited only to lower case letters.
+# space complexity is improved.
 def bitvector(word: str) -> bool:
     checker = 0
     for char in word:
@@ -20,6 +24,7 @@ def bitvector(word: str) -> bool:
     return True
 
 
+# worst case : O(n2)
 def bruteforce(word: str) -> bool:
     for key_index in range(len(word)):
         for other_index in range(key_index + 1, len(word)):

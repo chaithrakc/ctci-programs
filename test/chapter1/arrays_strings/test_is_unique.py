@@ -1,6 +1,7 @@
 import random
 import string
 import pytest
+
 from ctcl.chapter1.arrays_strings.is_unique import bruteforce, bitvector, ascii_approach
 
 
