@@ -1,12 +1,12 @@
 # using sorting : 2O(nlogn)
-def isvalid_permutation_bruteforce(word1: str, word2: str) -> bool:
+def isvalid_anagram_bruteforce(word1: str, word2: str) -> bool:
     if len(word1) != len(word2):
         return False
     return sorted(word1) == sorted(word2)
 
 
 # using ascii : 2O(n) but not space optimized since we will be initializing an array equal to ascii set
-def isvalid_permutation_ascii(word1: str, word2: str, ascii_set=128) -> bool:
+def isvalid_anagram_ascii(word1: str, word2: str, ascii_set=128) -> bool:
     if len(word1) != len(word2):
         return False
     letters = [0] * ascii_set
@@ -23,7 +23,7 @@ def isvalid_permutation_ascii(word1: str, word2: str, ascii_set=128) -> bool:
 
 # using hash tables : 2O(n) and Space Optimized since we use dict and initialize only with characters present in both
 # the words
-def isvalid_permutation_optimized(word1: str, word2: str) -> bool:
+def isvalid_anagram_optimized(word1: str, word2: str) -> bool:
     if len(word1) != len(word2):
         return False
     letter_counter = dict()     # letter_counter = dict(Counter(word1))  if inbuilt functions are allowed
