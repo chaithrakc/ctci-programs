@@ -25,5 +25,5 @@ def test_isvalid_permutation_bruteforce(word1, word2, expected):
 
 @pytest.mark.parametrize('word1,word2,expected', test_data)
 def test_isvalid_permutation_optimized(word1, word2, expected):
-    assert check_perm.isvalid_permutation_optimized(word1, word2) == expected
+    assert check_perm.isvalid_permutation_ascii(word1, word2) == expected
 
