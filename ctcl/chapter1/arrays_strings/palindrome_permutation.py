@@ -4,7 +4,7 @@ def isvalid_palindrome_permutation_dicts(word: str) -> bool:
     letter_count = dict()
     for letter in word:
         letter_count[letter] = letter_count.get(letter, 0) + 1
-    odd_counter = False  # treat it like a flag variable
+    odd_counter = False  # check whether all letters have even count except for at most one letter.
     for letter in word:
         if letter_count.get(letter) % 2:
             if odd_counter:
