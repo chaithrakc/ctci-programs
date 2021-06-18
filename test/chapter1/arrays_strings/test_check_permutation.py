@@ -9,7 +9,9 @@ test_data = [
     ('Partly', 'PartlyCloudy', False),
     ('master', 'mastermaster', False),
     ('suite', 'sutee', False),
-    ('noon', 'noon', True)
+    ('noon', 'noon', True),
+    (' ', ' ', True),
+    ('1234','3421',True)
 ]
 
 
@@ -26,4 +28,3 @@ def test_isvalid_permutation_bruteforce(word1, word2, expected):
 @pytest.mark.parametrize('word1,word2,expected', test_data)
 def test_isvalid_permutation_optimized(word1, word2, expected):
     assert check_perm.isvalid_permutation_ascii(word1, word2) == expected
-

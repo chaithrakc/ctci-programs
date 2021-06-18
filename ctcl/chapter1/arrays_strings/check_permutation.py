@@ -13,7 +13,6 @@ def isvalid_permutation_ascii(word1: str, word2: str, ascii_set=128) -> bool:
     for char in word1:
         ascii_val = ord(char)
         letters[ascii_val] = letters[ascii_val] + 1
-
     for char in word2:
         ascii_val = ord(char)
         letters[ascii_val] = letters[ascii_val] - 1
