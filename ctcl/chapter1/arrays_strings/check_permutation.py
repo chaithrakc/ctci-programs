@@ -23,7 +23,7 @@ def isvalid_permutation_ascii(word1: str, word2: str, ascii_set=128) -> bool:
 
 # using hash tables : 2O(n) and Space Optimized since we use dict and initialize only with characters present in both
 # the words
-def isvalid_permutation_dicts(word1: str, word2: str) -> bool:
+def isvalid_permutation_optimized(word1: str, word2: str) -> bool:
     if len(word1) != len(word2):
         return False
     letter_counter = dict()     # letter_counter = dict(Counter(word1))  if inbuilt functions are allowed
