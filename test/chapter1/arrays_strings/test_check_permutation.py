@@ -1,7 +1,6 @@
 import pytest
 
-from ctcl.chapter1.arrays_strings.check_permutation import isvalid_permutation_dicts, isvalid_permutation_bruteforce, \
-    isvalid_permutation_optimized
+from ctcl.chapter1.arrays_strings import check_permutation as check_perm
 
 test_data = [
     ('permutation', 'onmueprtati', True),
@@ -14,16 +13,17 @@ test_data = [
 ]
 
 
-@pytest.mark.parametrize("word1,word2,expected", test_data)
-def test_check_permutation(word1, word2, expected):
-    assert expected == isvalid_permutation_dicts(word1, word2)
+@pytest.mark.parametrize('word1,word2,expected', test_data)
+def test_isvalid_permutation_dicts(word1, word2, expected):
+    assert expected == check_perm.isvalid_permutation_dicts(word1, word2)
 
 
-@pytest.mark.parametrize("word1,word2,expected", test_data)
+@pytest.mark.parametrize('word1,word2,expected', test_data)
 def test_isvalid_permutation_bruteforce(word1, word2, expected):
-    assert isvalid_permutation_bruteforce(word1, word2) == expected
+    assert check_perm.isvalid_permutation_bruteforce(word1, word2) == expected
 
 
-@pytest.mark.parametrize("word1,word2,expected", test_data)
-def test_isvalid_permutation_optimized(word1,word2,expected):
-    assert isvalid_permutation_optimized(word1,word2) == expected
+@pytest.mark.parametrize('word1,word2,expected', test_data)
+def test_isvalid_permutation_optimized(word1, word2, expected):
+    assert check_perm.isvalid_permutation_optimized(word1, word2) == expected
+
