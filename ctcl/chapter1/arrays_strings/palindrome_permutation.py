@@ -26,8 +26,8 @@ def check_maxone_odd(table: list) -> bool:
 def isvalid_palindrome_permutation_bitvector(phrase: str) -> bool:
     phrase = str.lower(phrase)  # to make case insensitive
     phrase = phrase.replace(' ', '')  # removing the spaces
-    checker = 0
+    bitvector = 0
     for letter in phrase:
         val = ord(letter) - ord('a')
-        checker = checker ^ (1 << val)
-    return bin(checker).count('1') == len(phrase) % 2  # all letters have even count zero except for at most one letter
+        bitvector = bitvector ^ (1 << val)
+    return bin(bitvector).count('1') == len(phrase) % 2  # all letters have even count zero except for at most one letter
