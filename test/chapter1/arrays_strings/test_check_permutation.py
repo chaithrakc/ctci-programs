@@ -11,7 +11,7 @@ test_data = [
     ('suite', 'sutee', False),
     ('noon', 'noon', True),
     (' ', ' ', True),
-    ('1234','3421',True)
+    ('1234', '3421', True)
 ]
 
 
