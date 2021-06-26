@@ -9,10 +9,10 @@ def compressor_bruteforce(decomp: str):
             compressed_char.insert(index, char)
         else:
             compressed_count[index] = compressed_count[index] + 1
-    return get_compressed_string(compressed_char, compressed_count, decomp)
+    return __get_compressed_string(compressed_char, compressed_count, decomp)
 
 
-def get_compressed_string(characters: list, counter: list, decomp: str) -> str:
+def __get_compressed_string(characters: list, counter: list, decomp: str) -> str:
     compressed_str = ''
     for index in range(len(characters)):
         compressed_str = compressed_str + characters[index] + str(counter[index])
