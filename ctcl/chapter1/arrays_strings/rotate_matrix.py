@@ -1,3 +1,4 @@
+# Difficulty : Hard
 class SolutionRotateMatrix:
     __image_matrix = None
 
