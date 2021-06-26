@@ -5,8 +5,8 @@ class SolutionPalindromePermutation:
         self.__phrase = phrase
 
     def isvalid_palindrome_permutation_dicts(self) -> bool:
-        phrase = str.lower(self.__phrase)  # to make case insensitive
-        phrase = phrase.replace(' ', '')  # removing the spaces
+        self.__phrase = str.lower(self.__phrase)  # to make case insensitive
+        self.__phrase = self.__phrase.replace(' ', '')  # removing the spaces
         letter_count = self.__build_charfreq_table()
         return self.__check_maxone_odd(letter_count)
 
