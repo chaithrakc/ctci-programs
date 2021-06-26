@@ -1,11 +1,11 @@
 def isvalid_palindrome_permutation_dicts(phrase: str) -> bool:
     phrase = str.lower(phrase)  # to make case insensitive
     phrase = phrase.replace(' ', '')  # removing the spaces
-    letter_count = build_charfreq_table(phrase)
-    return check_maxone_odd(letter_count)
+    letter_count = __build_charfreq_table(phrase)
+    return __check_maxone_odd(letter_count)
 
 
-def build_charfreq_table(phrase: str) -> list:
+def __build_charfreq_table(phrase: str) -> list:
     freq_table = [0] * (ord('z') - ord('a') + 1)
     for char in phrase:
         index = ord(char) - ord('a')
@@ -13,7 +13,7 @@ def build_charfreq_table(phrase: str) -> list:
     return freq_table
 
 
-def check_maxone_odd(table: list) -> bool:
+def __check_maxone_odd(table: list) -> bool:
     odd_counter = False  # check whether all letters have even count except for at most one letter.
     for count in table:
         if count % 2:
