@@ -1,7 +1,6 @@
 import pytest
 
-from ctcl.chapter1.arrays_strings.palindrome_permutation import isvalid_palindrome_permutation_dicts, \
-    isvalid_palindrome_permutation_bitvector
+from ctcl.chapter1.arrays_strings.palindrome_permutation import SolutionPalindromePermutation
 
 
 def get_testdata():
@@ -17,11 +16,15 @@ def get_testdata():
     return test_data
 
 
-@pytest.mark.parametrize("test_data, expected", get_testdata())
-def test_isvalid_palindrome_permutation(test_data, expected):
-    assert isvalid_palindrome_permutation_dicts(test_data) == expected
+class TestSolutionPalindromPermutation:
+    __solution = SolutionPalindromePermutation()
 
+    @pytest.mark.parametrize("test_data, expected", get_testdata())
+    def test_isvalid_palindrome_permutation(self, test_data, expected):
+        self.__solution.set_iput(test_data)
+        assert self.__solution.isvalid_palindrome_permutation_dicts() == expected
 
-@pytest.mark.parametrize("test_data, expected", get_testdata())
-def test_isvalid_palindrome_permutation_bitvector(test_data,expected):
-    assert isvalid_palindrome_permutation_bitvector(test_data) == expected
+    @pytest.mark.parametrize("test_data, expected", get_testdata())
+    def test_isvalid_palindrome_permutation_bitvector(self, test_data, expected):
+        self.__solution.set_iput(test_data)
+        assert self.__solution.isvalid_palindrome_permutation_bitvector() == expected

@@ -1,5 +1,8 @@
 class SolutionOneEditAway:
-    def __init__(self, first_word, second_word):
+    __first_word = ''
+    __second_word = ''
+
+    def set_input(self, first_word, second_word):
         self.__first_word = first_word
         self.__second_word = second_word
 

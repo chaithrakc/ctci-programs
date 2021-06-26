@@ -1,5 +1,5 @@
 import pytest
-from ctcl.chapter1.arrays_strings.URLify import urlify
+from ctcl.chapter1.arrays_strings.URLify import SolutionURLify
 
 
 def get_testdata():
@@ -13,6 +13,10 @@ def get_testdata():
     return test_data
 
 
-@pytest.mark.parametrize('string,true_length,expected', get_testdata())
-def test_urlify(string, true_length, expected):
-    assert urlify(string, true_length) == expected
+class TestSolutionURLify:
+    __solution = SolutionURLify()
+
+    @pytest.mark.parametrize('name,true_length,expected', get_testdata())
+    def test_urlify(self, name, true_length, expected):
+        self.__solution.set_input(name, true_length)
+        assert self.__solution.urlify() == expected

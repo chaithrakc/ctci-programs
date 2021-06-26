@@ -32,7 +32,10 @@ def get_testdata():
     return test_data
 
 
-@pytest.mark.parametrize('first, second, expected', get_testdata())
-def test_one_away(first, second, expected):
-    solution = SolutionOneEditAway(first, second)
-    assert solution.one_editaway() == expected
+class TestSolutionOneAway:
+    __solution = SolutionOneEditAway()
+
+    @pytest.mark.parametrize('first, second, expected', get_testdata())
+    def test_one_away(self, first, second, expected):
+        self.__solution.set_input(first, second)
+        assert self.__solution.one_editaway() == expected
