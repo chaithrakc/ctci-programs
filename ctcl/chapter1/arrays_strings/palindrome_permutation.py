@@ -1,7 +1,7 @@
 class SolutionPalindromePermutation:
     __phrase = ''
 
-    def set_iput(self, phrase: str):
+    def set_iput(self, phrase: str) -> None:
         self.__phrase = phrase
 
     def isvalid_palindrome_permutation_dicts(self) -> bool:

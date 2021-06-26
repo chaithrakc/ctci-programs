@@ -2,7 +2,7 @@ class SolutionURLify:
     __name = ''
     __true_length = 0
 
-    def set_input(self, name: str, true_length: int):
+    def set_input(self, name: str, true_length: int) -> None:
         self.__name = name
         self.__true_length = true_length
 

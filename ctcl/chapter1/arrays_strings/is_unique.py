@@ -1,7 +1,7 @@
 class SolutionUnique:
     __word = ''
 
-    def set_input(self, word: str):
+    def set_input(self, word: str) -> None:
         self.__word = word
 
     # assuming ascii set has only 128 characters

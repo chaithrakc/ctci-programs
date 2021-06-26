@@ -2,7 +2,7 @@ class SolutionOneEditAway:
     __first_word = ''
     __second_word = ''
 
-    def set_input(self, first_word, second_word):
+    def set_input(self, first_word, second_word) -> None:
         self.__first_word = first_word
         self.__second_word = second_word
 

@@ -2,7 +2,7 @@ class SolutionPermutation:
     __first_word = ''
     __second_word = ''
 
-    def set_input(self, first_word: str, second_word: str):
+    def set_input(self, first_word: str, second_word: str) -> None:
         self.__first_word = first_word
         self.__second_word = second_word
 

@@ -1,10 +1,10 @@
 class SolutionCompresser:
     __word = ''
 
-    def set_input(self, word: str):
+    def set_input(self, word: str) -> None:
         self.__word = word
 
-    def compresser_bruteforce(self):
+    def compresser_bruteforce(self) -> str:
         compressed_string = ''
         count_consecutive = 0
         for index in range(len(self.__word)):
