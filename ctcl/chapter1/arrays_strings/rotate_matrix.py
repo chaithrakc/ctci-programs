@@ -1,14 +1,17 @@
 # Difficulty : Medium
-class SolutionRotateMatrix:
-    __image_matrix = None
+from typing import List
 
-    def set_input(self, image_matrix: list[list[int]]) -> None:
-        self.__image_matrix = image_matrix
 
-    def rotate_matrix(self) -> None:
+class SolutionRotateImage:
+    __matrix = None
+
+    def set_input(self, matrix: List[List[int]]) -> None:
+        self.__matrix = matrix
+
+    def rotate_matrix_clockwise(self) -> None:
         # accepting only N x N matrices for rotation
-        if len(self.__image_matrix) != len(self.__image_matrix[0]):
+        if len(self.__matrix) != len(self.__matrix[0]):
             return
 
-    def get_output(self) -> list[list[int]]:
-        return self.__image_matrix
+    def get_output(self) -> List[List[int]]:
+        return self.__matrix
