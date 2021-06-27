@@ -20,4 +20,4 @@ class TestSolutionStringRotation:
     @pytest.mark.parametrize('s1,s2,expected', get_testcases())
     def test_valid_rotation(self, s1: str, s2: str, expected: bool):
         self.__solution.set_input(s1, s2)
-        assert self.__solution.are_rotated_bruteforce() == expected
+        assert self.__solution.are_rotated() == expected
