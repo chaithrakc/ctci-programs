@@ -1,6 +1,7 @@
 import pytest
 
 from ctcl.chapter1.arrays_strings.rotate_matrix import SolutionRotateImage
+from test.chapter1.arrays_strings.test_utils.util import are_identical_matrices
 
 
 def get_testdata():
@@ -16,15 +17,6 @@ def get_testdata():
     ]
 
 
-def are_identical(output_matrix, expected_matrx):
-    rows, columns = len(expected_matrx), len(expected_matrx[0])
-    for row in range(rows):
-        for column in range(columns):
-            if output_matrix[row][column] != expected_matrx[row][column]:
-                return False
-    return True
-
-
 class TestSolutionRotateImage:
     __solution = SolutionRotateImage()
 
@@ -32,4 +24,4 @@ class TestSolutionRotateImage:
     def test_rotate_matrix(self, matrix, rotated_matrix):
         self.__solution.set_input(matrix)
         self.__solution.rotate_matrix_clockwise()
-        assert are_identical(self.__solution.get_output(), rotated_matrix)
+        assert are_identical_matrices(self.__solution.get_output(), rotated_matrix)
