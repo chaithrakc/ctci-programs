@@ -44,14 +44,17 @@ class SolutionZeroMatrix:
     # space efficient solution
     def set_zeroes_efficient(self) -> None:
         self.__rows, self.__columns = len(self.__matrix), len(self.__matrix[0])
+
         # check first row and first column has zero
         first_row_has_zero, first_col_has_zero = self.__check_first_row_column_zeroes()
+
         # check rest of the matrix has zero
         for row in range(1, self.__rows):
             for column in range(1, self.__columns):
                 if self.__matrix[row][column] == 0:
                     self.__matrix[row][0] = 0
                     self.__matrix[0][column] = 0
+        # nullify
         self.__nullify_matrix()
         if first_row_has_zero:
             self.__nullify_rows(0)

@@ -1,7 +1,7 @@
 import pytest
 
 from ctcl.chapter1.arrays_strings.zero_matrix import SolutionZeroMatrix
-from test.chapter1.arrays_strings.test_utils.util import are_identical_matrices
+from test.test_utils.util import are_identical_matrices
 
 
 def get_testdata():
