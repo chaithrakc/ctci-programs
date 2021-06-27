@@ -24,5 +24,11 @@ class TestSolutionZeroMatrix:
     @pytest.mark.parametrize('matrix, zero_matrix', get_testdata())
     def test_zero_matrix_algorithm(self, matrix, zero_matrix):
         self.__solution.set_input(matrix)
-        self.__solution.set_zeros_bruteforce()
+        self.__solution.set_zeroes()
+        assert are_identical_matrices(self.__solution.get_zeromatrix(), zero_matrix)
+
+    @pytest.mark.parametrize('matrix, zero_matrix', get_testdata())
+    def test_set_zeros_spaceoptimized(self, matrix, zero_matrix):
+        self.__solution.set_input(matrix)
+        self.__solution.set_zeroes_efficient()
         assert are_identical_matrices(self.__solution.get_zeromatrix(), zero_matrix)
