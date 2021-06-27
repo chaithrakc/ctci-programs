@@ -1,6 +1,6 @@
+from ctcl.chapter1.arrays_strings.rotate_matrix import SolutionRotateMatrix
 import pytest
 
-from ctcl.chapter1.arrays_strings.rotate_matrix import SolutionRotateImage
 from test.test_utils.util import are_identical_matrices
 
 
@@ -18,7 +18,7 @@ def get_testdata():
 
 
 class TestSolutionRotateImage:
-    __solution = SolutionRotateImage()
+    __solution = SolutionRotateMatrix()
 
     @pytest.mark.parametrize('matrix, rotated_matrix', get_testdata())
     def test_rotate_matrix(self, matrix, rotated_matrix):

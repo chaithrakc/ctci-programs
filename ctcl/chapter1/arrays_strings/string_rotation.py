@@ -6,6 +6,8 @@ Hints: #34, #88, # 7 04
 
 Difficulty : Easy
 '''
+
+
 class SolutionStringRotation:
     __first_string = ''
     __second_string = ''
@@ -18,10 +20,8 @@ class SolutionStringRotation:
         return True if string.find(sub_string) > -1 else False
 
     def are_rotated_bruteforce(self) -> bool:
-        # both the strings are same -> they are not rotated
-        # both the strings have different lengths -> they are not rotated
-        if self.__first_string == self.__second_string or len(self.__first_string) != len(self.__second_string):
-            return False
-        repeated_first_str = self.__first_string*2
-        return self.__is_substring(repeated_first_str, self.__second_string)
-                   
+        # Check that sl and s2 are equal length and not empty
+        if len(self.__first_string) == len(self.__second_string) and len(self.__first_string) > 0:
+            repeated_first_str = self.__first_string*2
+            return self.__is_substring(repeated_first_str, self.__second_string)
+        return False
