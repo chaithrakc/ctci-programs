@@ -23,7 +23,7 @@ class TestSolutionRotateMatrix:
     __solution = SolutionRotateMatrix()
 
     @pytest.mark.parametrize('matrix, rotated_matrix', get_testdata())
-    def test_rotate_matrix(self, matrix, rotated_matrix):
+    def test_rotate_matrix_clockwise(self, matrix, rotated_matrix):
         self.__solution.set_input(matrix)
         self.__solution.rotate_matrix_clockwise()
         assert are_identical_matrices(self.__solution.get_output(), rotated_matrix)
