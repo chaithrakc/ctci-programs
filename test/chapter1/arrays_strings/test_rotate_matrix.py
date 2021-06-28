@@ -13,11 +13,13 @@ def get_testdata():
         ([[100]], [[100]]),
         ([[]], [[]]),
         ([[5, 0, 6, 3], [4, 15, 7, 3], [2, 0, 7, 1], [8, 9, 9, 8]],
-         [[8, 2, 4, 5], [9, 0, 15, 0], [9, 7, 7, 6], [8, 1, 3, 3]])
+         [[8, 2, 4, 5], [9, 0, 15, 0], [9, 7, 7, 6], [8, 1, 3, 3]]),
+        ([[5, 0, 6, 3, 9], [4, 15, 7, 3, 0], [2, 0, 7, 1, 15], [8, 9, 9, 8, 23], [9, 7, 21, 23, 0]],
+         [[9, 8, 2, 4, 5], [7, 9, 0, 15, 0], [21, 9, 7, 7, 6], [23, 8, 1, 3, 3], [0, 23, 15, 0, 9]])
     ]
 
 
-class TestSolutionRotateImage:
+class TestSolutionRotateMatrix:
     __solution = SolutionRotateMatrix()
 
     @pytest.mark.parametrize('matrix, rotated_matrix', get_testdata())

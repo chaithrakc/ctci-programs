@@ -13,15 +13,15 @@ Difficulty : Medium
 
 class SolutionZeroMatrix:
     __matrix = None
-    __rows = 0
+    __length = 0
     __columns = 0
 
     def set_input(self, matrix: List[List[int]]) -> None:
         self.__matrix = matrix
+        self.__rows, self.__columns = len(self.__matrix), len(self.__matrix[0])
 
     # additional memory approach
     def set_zeroes(self) -> None:
-        self.__rows, self.__columns = len(self.__matrix), len(self.__matrix[0])
         zero_rows, zero_columns = set(), set()
         for row in range(self.__rows):
             for column in range(self.__columns):
@@ -43,8 +43,6 @@ class SolutionZeroMatrix:
 
     # space efficient solution
     def set_zeroes_efficient(self) -> None:
-        self.__rows, self.__columns = len(self.__matrix), len(self.__matrix[0])
-
         # check first row and first column has zero
         first_row_has_zero, first_col_has_zero = self.__check_first_row_column_zeroes()
 
