@@ -12,8 +12,8 @@ class Node:
 
 class LinkedList(ILinkedList):
 
-    def __init__(self, head: Node):
-        self.head = head
+    def __init__(self):
+        self.head = None
 
     def clear(self) -> None:
         pass
@@ -46,7 +46,7 @@ class LinkedList(ILinkedList):
         node = self.head
         nodes = list()
         while node is not None:
-            nodes.append(node)
+            nodes.append(str(node.data))
             node = node.next
         nodes.append('None')
-        return '->'.join(nodes)
+        return ' -> '.join(nodes)
