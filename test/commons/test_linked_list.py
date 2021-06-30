@@ -1,9 +1,9 @@
 import random
 
-from ctcl.commons.linked_list import LinkedList, Node
+from ctcl.commons.linked_list import Node, LinkedList
 
 
-def get_random_num_list(length: int, num_from: int, num_to: int) -> LinkedList:
+def get_random_num_list(length=5, num_from=1, num_to=100) -> LinkedList:
     linked_list = LinkedList()
     counter = 0
     node = None
@@ -21,7 +21,7 @@ def get_random_num_list(length: int, num_from: int, num_to: int) -> LinkedList:
 class TestLinkedList:
 
     def test_clear(self):
-        get_random_num_list(10, 1, 100)
+        get_random_num_list()
         assert False
 
     def test_len(self):

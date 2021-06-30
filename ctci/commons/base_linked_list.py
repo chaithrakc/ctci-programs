@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 
 
 class ILinkedList(ABC):
+    head = None
 
     @abstractmethod
     def clear(self) -> None:

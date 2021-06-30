@@ -12,9 +12,6 @@ class Node:
 
 class LinkedList(ILinkedList):
 
-    def __init__(self):
-        self.head = None
-
     def clear(self) -> None:
         pass
 
