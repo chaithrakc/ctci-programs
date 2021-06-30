@@ -4,7 +4,7 @@ class Node:
         self.next = None
 
     def __repr__(self):
-        return self.data
+        return str(self.data)
 
 
 class LinkedList:
@@ -23,8 +23,10 @@ class LinkedList:
             count = count + 1
         return count
 
-    # index can be at the 0, end, middle, not found - check for all the cases
-    def insert(self, index, data) -> bool:
+    def insert(self, index, data):
+        if self.head is None or index == 0:
+            self.append_head(data)
+            return
         count = 0
         node = self.head
         prev_node = node
@@ -32,79 +34,84 @@ class LinkedList:
         while count <= index and node is not None:
             if count == index:
                 prev_node.next = new_node
-                new_node.next = node.next
-                return True
+                new_node.next = node
+                return
             prev_node = node
             node = node.next
             count = count + 1
-        return False
+        # if index is not found, appending to the end of the list
+        prev_node.next = new_node
 
-    def append_head(self, data) -> bool:
+    def append_head(self, data):
         if self.head is None:
             self.head = Node(data)
-            return True
+            return
         node = self.head
         new_node = Node(data)
         new_node.next = node
         self.head = new_node
-        return True
 
-    # need to implement when append can return false
-    def append_tail(self, data) -> bool:
+    def append_tail(self, data):
         if self.head is None:
             self.head = Node(data)
-            return True
+            return
         node = self.head
         while node.next is not None:
             node = node.next
         node.next = Node(data)
-        return True
 
-    # data can be at the beginning, end, middle, not found - check for all the cases
-    def remove(self, data) -> bool:
+    def remove(self, key_elem) -> int:
         if self.head is None:
-            return False
+            return -1
+        if self.head.data == key_elem:
+            self.head = self.head.next
+            return 0
+        index = 0
         node = self.head
         prev_node = self.head
         while node is not None:
-            if node.data == data:
+            if node.data == key_elem:
                 prev_node.next = node.next
-                node.next = None
-                return True
+                return index
             prev_node = node
             node = node.next
-        return False
+            index = index + 1
+        return -1
 
-    def remove_head(self) -> bool:
+    def remove_head(self):
         if self.head is None:
-            return False
+            return None
         node = self.head
         self.head = self.head.next
         node.next = None
-        return True
+        return node.data
 
-    def remove_tail(self) -> bool:
+    def remove_tail(self):
         if self.head is None:
-            return False
+            return None
+        elif self.head.next is None:
+            data = self.head.data
+            self.head = None
+            return data
         node = self.head
         prev_node = self.head
         while node.next is not None:
             prev_node = node
             node = node.next
         prev_node.next = None
-        return True
+        return node.data
 
-    def find(self, data) -> int:
+    def find(self, key_elem) -> int:
         index = 0
         if self.head is None:
             return -1
         node = self.head
         while node is not None:
-            if node.data == data:
+            if node.data == key_elem:
                 return index
             node = node.next
             index = index + 1
-        return index
+        return -1
 
     def __repr__(self):
         node = self.head
@@ -112,5 +119,4 @@ class LinkedList:
         while node is not None:
             nodes.append(str(node.data))
             node = node.next
-        nodes.append('None')
         return ' -> '.join(nodes)
