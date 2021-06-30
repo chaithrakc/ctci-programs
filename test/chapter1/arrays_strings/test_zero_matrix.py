@@ -1,6 +1,6 @@
 import pytest
 
-from ctcl.chapter1.arrays_strings.zero_matrix import SolutionZeroMatrix
+from ctci.chapter1.arrays_strings.zero_matrix import SolutionZeroMatrix
 from test.test_utils.util import are_identical_matrices
 
 

@@ -1,6 +1,6 @@
 import pytest
 
-from ctcl.chapter1.arrays_strings.one_away import SolutionOneEditAway
+from ctci.chapter1.arrays_strings.one_away import SolutionOneEditAway
 
 
 def get_testdata():

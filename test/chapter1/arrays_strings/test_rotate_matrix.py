@@ -1,4 +1,4 @@
-from ctcl.chapter1.arrays_strings.rotate_matrix import SolutionRotateMatrix
+from ctci.chapter1.arrays_strings.rotate_matrix import SolutionRotateMatrix
 import pytest
 
 from test.test_utils.util import are_identical_matrices

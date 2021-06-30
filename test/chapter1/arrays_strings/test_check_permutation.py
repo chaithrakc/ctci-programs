@@ -1,6 +1,6 @@
 import pytest
 
-from ctcl.chapter1.arrays_strings.check_permutation import SolutionPermutation
+from ctci.chapter1.arrays_strings.check_permutation import SolutionPermutation
 
 test_data = [
     ('permutation', 'onmueprtati', True),

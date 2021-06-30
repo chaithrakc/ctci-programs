@@ -1,6 +1,6 @@
 import random
 
-from ctcl.commons.linked_list import Node, LinkedList
+from ctci.commons.linked_list import Node, LinkedList
 
 
 def get_random_num_list(length=5, num_from=1, num_to=100) -> LinkedList:

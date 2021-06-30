@@ -1,5 +1,3 @@
-from typing import List
-
 '''
 Zero Matrix: Write an algorithm such that if an element in an MxN matrix is 0, its entire row and
 column are set to 0.
@@ -10,10 +8,12 @@ https://leetcode.com/problems/set-matrix-zeroes/
 Difficulty : Medium
 '''
 
+from typing import List
+
 
 class SolutionZeroMatrix:
     __matrix = None
-    __length = 0
+    __rows = 0
     __columns = 0
 
     def set_input(self, matrix: List[List[int]]) -> None:

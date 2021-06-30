@@ -1,6 +1,3 @@
-from ctcl.commons.base_linked_list import ILinkedList
-
-
 class Node:
     def __init__(self, data):
         self.data = data
@@ -10,7 +7,10 @@ class Node:
         return self.data
 
 
-class LinkedList(ILinkedList):
+class LinkedList:
+
+    def __init__(self):
+        self.head = None
 
     def clear(self) -> None:
         pass

@@ -1,6 +1,6 @@
 import pytest
 
-from ctcl.chapter1.arrays_strings.string_compresser import SolutionCompresser
+from ctci.chapter1.arrays_strings.string_compresser import SolutionCompresser
 
 
 def get_testcases():

@@ -1,6 +1,6 @@
 import pytest
 
-from ctcl.chapter1.arrays_strings.palindrome_permutation import SolutionPalindromePermutation
+from ctci.chapter1.arrays_strings.palindrome_permutation import SolutionPalindromePermutation
 
 
 def get_testdata():
