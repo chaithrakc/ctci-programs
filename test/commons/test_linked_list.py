@@ -1,31 +1,41 @@
-import random
+import pytest
 
 from ctci.commons.linked_list import Node, LinkedList
 
 
-def get_random_num_list(length=5, num_from=1, num_to=100) -> LinkedList:
-    linked_list = LinkedList()
-    counter = 0
-    node = None
-    while counter < length:
-        if node is None:
-            node = Node(random.randint(num_from, num_to))
-            linked_list.head = node
-        else:
-            node.next = Node(random.randint(num_from, num_to))
-            node = node.next
-        counter = counter + 1
-    return linked_list
+def get_test_arrays():
+    return [
+        ([1, 2, 3, 4, 5, 6]),
+        (['test_str']),
+        ([]),
+        ([56, 89, 100]),
+        (['c', 's', 'u', 'n', 'n', 'y'])
+    ]
 
 
 class TestLinkedList:
 
-    def test_clear(self):
-        get_random_num_list()
-        assert False
+    def get_linkedlist(self, array: list) -> LinkedList:
+        linked_list = LinkedList()
+        if len(array) == 0:
+            return linked_list
+        node = Node(array[0])
+        linked_list.head = node
+        for i in range(1, len(array)):
+            node.next = Node(array[i])
+            node = node.next
+        return linked_list
 
-    def test_len(self):
-        assert False
+    @pytest.mark.parametrize('array', get_test_arrays())
+    def test_clear(self, array):
+        linked_list = self.get_linkedlist(array)
+        linked_list.clear()
+        assert linked_list.head is None
+
+    @pytest.mark.parametrize('array', get_test_arrays())
+    def test_len(self, array):
+        linked_list = self.get_linkedlist(array)
+        assert linked_list.len() == len(array)
 
     def test_insert(self):
         assert False
