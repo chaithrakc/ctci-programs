@@ -103,6 +103,9 @@ class LinkedList:
         prev_node.next = None
         return node.data
 
+    def remove_index(self, index) -> bool:
+        pass
+
     def find(self, key_elem) -> int:
         index = 0
         if self.head is None:
