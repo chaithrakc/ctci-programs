@@ -24,11 +24,11 @@ class TestSolutionRemoveDups:
     @pytest.mark.parametrize('duplicate_list, unique_list', get_linkedlist_dups())
     def test_remove_dups_sets(self, duplicate_list, unique_list):
         linkedlist = get_linkedlist(duplicate_list)
-        self.__solution.remove_dups_sets(linkedlist)
+        self.__solution.remove_dups_sets(linkedlist.head)
         assert equal(linkedlist, unique_list)
 
     @pytest.mark.parametrize('duplicate_list, unique_list', get_linkedlist_dups())
     def test_remove_dups(self, duplicate_list, unique_list):
         linkedlist = get_linkedlist(duplicate_list)
-        self.__solution.remove_dups(linkedlist)
+        self.__solution.remove_dups(linkedlist.head)
         assert equal(linkedlist, unique_list)

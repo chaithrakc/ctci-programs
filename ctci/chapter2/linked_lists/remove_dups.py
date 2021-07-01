@@ -5,39 +5,29 @@ Hints: #9, #40
 
 Difficulty: Easy
 '''
-from ctci.commons.linked_list import LinkedList
+from ctci.commons.linked_list import LinkedList, Node
 
 
 class SolutionRemoveDups:
     # time complexity O(n) but required extra buffer
-    def remove_dups_sets(self, linkedlist: LinkedList) -> None:
-        if linkedlist.head is None:
-            return
+    def remove_dups_sets(self, node: Node) -> None:
         unique_node = set()
-        node = linkedlist.head
-        prev_node = linkedlist.head
+        prev_node = node
         while node is not None:
             if node.data in unique_node:
                 prev_node.next = node.next
-                node = prev_node.next
-                continue
-            unique_node.add(node.data)
-            prev_node = node
+            else:
+                unique_node.add(node.data)
+                prev_node = node
             node = node.next
 
     # time complexity O(n2) but space optimized
-    def remove_dups(self, linkedlist: LinkedList) -> None:
-        if linkedlist.head is None:
-            return
-        slow_node = linkedlist.head
-        while slow_node is not None:
-            prev_node = slow_node
-            fast_node = slow_node.next
-            while fast_node is not None:
-                if fast_node.data == slow_node.data:
-                    prev_node.next = fast_node.next
-                    fast_node = prev_node.next
-                    continue
-                prev_node = fast_node
-                fast_node = fast_node.next
-            slow_node = slow_node.next
+    def remove_dups(self, node: Node) -> None:
+        while node is not None:
+            runner = node
+            while runner.next is not None:
+                if runner.next.data == node.data:
+                    runner.next = runner.next.next
+                else:
+                    runner = runner.next
+            node = node.next
