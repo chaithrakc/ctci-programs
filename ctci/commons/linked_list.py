@@ -8,9 +8,38 @@ class Node:
 
 
 class LinkedList:
+    head = None
 
-    def __init__(self):
-        self.head = None
+    def __init__(self, *nodes):
+        if len(nodes) == 0:
+            self.head = None
+        else:
+            node = Node(nodes[0])
+            self.head = node
+            for i in range(1, len(nodes)):
+                node.next = Node(nodes[i])
+                node = node.next
+
+    def __eq__(self, other) -> bool:
+        node1 = self.head
+        node2 = other.head
+        while node1 is not None and node2 is not None:
+            if node1.data != node2.data:
+                return False
+            node1 = node1.next
+            node2 = node2.next
+        return node1 is None and node2 is None
+
+    def __repr__(self) -> str:
+        node = self.head
+        nodes = list()
+        while node is not None:
+            nodes.append(str(node.data))
+            node = node.next
+        return ' -> '.join(nodes)
+
+    def __hash__(self) -> int:
+        return super().__hash__()
 
     def clear(self) -> None:
         self.head = None
@@ -85,7 +114,6 @@ class LinkedList:
             return None
         node = self.head
         self.head = self.head.next
-        node.next = None
         return node.data
 
     def remove_tail(self):
@@ -131,11 +159,3 @@ class LinkedList:
             node = node.next
             index = index + 1
         return -1
-
-    def __repr__(self):
-        node = self.head
-        nodes = list()
-        while node is not None:
-            nodes.append(str(node.data))
-            node = node.next
-        return ' -> '.join(nodes)

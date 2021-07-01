@@ -20,16 +20,3 @@ def equal(linked_list: LinkedList, array: list) -> bool:
         node = node.next
         index = index + 1
     return node is None and index == len(array)
-
-
-# returns linkedlist from an array
-def get_linkedlist(array: list) -> LinkedList:
-    linked_list = LinkedList()
-    if len(array) == 0:
-        return linked_list
-    node = Node(array[0])
-    linked_list.head = node
-    for i in range(1, len(array)):
-        node.next = Node(array[i])
-        node = node.next
-    return linked_list
