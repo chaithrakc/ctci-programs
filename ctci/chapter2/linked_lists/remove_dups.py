@@ -9,18 +9,18 @@ from ctci.commons.linked_list import LinkedList
 
 
 class SolutionRemoveDups:
-    def remove_dups_bruteforce(self, linkedlist: LinkedList) -> None:
+    # time complexity O(n)
+    def remove_dups_sets(self, linkedlist: LinkedList) -> None:
+        unique_node = set()
         if linkedlist.head is None:
             return
         node = linkedlist.head
-        outer_index = 0
+        prev_node = linkedlist.head
         while node is not None:
-            temp_node = node.next
-            inner_index = outer_index + 1
-            while temp_node is not None:
-                if node.data == temp_node.data:
-                    linkedlist.remove_index(inner_index)
-                temp_node = temp_node.next
-                inner_index = inner_index + 1
-            outer_index = outer_index + 1
+            if node.data in unique_node:
+                prev_node.next = node.next
+                node = prev_node.next
+                continue
+            unique_node.add(node.data)
+            prev_node = node
             node = node.next
