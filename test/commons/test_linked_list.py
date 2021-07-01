@@ -19,7 +19,7 @@ length_tests = [
     (LinkedList('c', 's', 'u', 'n', 'n', 'y'), 6)
 ]
 
-linkedlist_test = [
+clear_test = [
     (LinkedList(1, 2, 3, 4, 5, 6)),
     (LinkedList('test_str')),
     (LinkedList()),
@@ -85,7 +85,7 @@ remove_tail_tests = [
 
 class TestLinkedList:
 
-    @pytest.mark.parametrize('test_list', linkedlist_test)
+    @pytest.mark.parametrize('test_list', clear_test)
     def test_clear(self, test_list):
         test_list.clear()
         assert test_list.head is None
