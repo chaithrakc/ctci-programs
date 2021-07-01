@@ -1,13 +1,10 @@
-from commons.linked_list import LinkedList
+from commons.linked_list import Node
 
 
 class SolutionDeleteMiddleNode:
-    def delete_middle_node(self, linkedlist:LinkedList, elem):
-        node = linkedlist.head
-        prev_node = linkedlist.head
-        while node is not None:
-            if node.data == elem:
-                prev_node.next = node.next
-                return
-            prev_node = node
-            node = node.next
+    def delete_middle_node(self, remove_node: Node):
+        if remove_node is None or remove_node.next is None:
+            return
+        runner = remove_node.next
+        remove_node.data = runner.data
+        remove_node.next = runner.next

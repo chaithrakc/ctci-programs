@@ -10,14 +10,14 @@ class Node:
 class LinkedList:
     head = None
 
-    def __init__(self, *nodes):
-        if len(nodes) == 0:
+    def __init__(self, *params):
+        if len(params) == 0:
             self.head = None
         else:
-            node = Node(nodes[0])
+            node = Node(params[0])
             self.head = node
-            for i in range(1, len(nodes)):
-                node.next = Node(nodes[i])
+            for i in range(1, len(params)):
+                node.next = Node(params[i])
                 node = node.next
 
     def __eq__(self, other) -> bool:
