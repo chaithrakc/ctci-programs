@@ -1,6 +1,6 @@
 import pytest
 
-from commons.linked_list import LinkedList
+from ctci.commons.linked_list import LinkedList
 from test.test_utils.util import equal
 
 find_tests = [

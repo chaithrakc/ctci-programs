@@ -4,7 +4,7 @@ Hints:#8, #25, #41, #67, #126
 
 Difficulty: Easy
 '''
-from commons.linked_list import Node, LinkedList
+from ctci.commons.linked_list import Node, LinkedList
 
 
 class SolutionKthToLast:

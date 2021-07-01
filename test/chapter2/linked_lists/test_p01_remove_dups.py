@@ -1,6 +1,6 @@
 import pytest
 
-from commons.linked_list import LinkedList
+from ctci.commons.linked_list import LinkedList
 from ctci.chapter2.linked_lists.p01_remove_dups import SolutionRemoveDups
 
 

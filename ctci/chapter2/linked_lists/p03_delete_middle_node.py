@@ -1,4 +1,4 @@
-from commons.linked_list import Node
+from ctci.commons.linked_list import Node
 
 
 class SolutionDeleteMiddleNode:
