@@ -103,8 +103,22 @@ class LinkedList:
         prev_node.next = None
         return node.data
 
-    def remove_index(self, index) -> bool:
-        pass
+    def remove_index(self, index):
+        if index < 0:
+            raise IndexError('Index out of bound:' + str(index))
+        if self.head is None or index == 0:
+            self.remove_head()
+            return
+        counter = 0
+        node = self.head
+        prev_node = node
+        while node is not None:
+            if index == counter:
+                prev_node.next = node.next
+                return
+            prev_node = node
+            node = node.next
+            counter = counter + 1
 
     def find(self, key_elem) -> int:
         index = 0
