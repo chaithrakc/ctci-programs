@@ -24,6 +24,8 @@ class LinkedList:
         return count
 
     def insert(self, index, data):
+        if index < 0:
+            raise IndexError('Index out of bound:' + str(index))
         if self.head is None or index == 0:
             self.append_head(data)
             return

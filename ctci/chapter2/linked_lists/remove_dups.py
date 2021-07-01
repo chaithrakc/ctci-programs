@@ -5,8 +5,9 @@ Hints: #9, #40
 
 Difficulty: Easy
 '''
+from ctci.commons.linked_list import LinkedList
 
 
 class SolutionRemoveDups:
-    def remove_dups(self) -> None:
+    def remove_dups(self, linked_list: LinkedList) -> None:
         pass
