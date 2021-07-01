@@ -1,8 +1,7 @@
 import pytest
 
 from commons.linked_list import LinkedList
-from ctci.chapter2.linked_lists.remove_dups import SolutionRemoveDups
-from test.test_utils.util import equal
+from ctci.chapter2.linked_lists.p01_remove_dups import SolutionRemoveDups
 
 
 def get_linkedlist_dups():

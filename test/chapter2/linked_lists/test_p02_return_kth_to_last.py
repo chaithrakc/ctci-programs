@@ -1,6 +1,6 @@
 import pytest
 
-from chapter2.linked_lists.return_kth_to_last import SolutionKthToLast
+from chapter2.linked_lists.p02_return_kth_to_last import SolutionKthToLast
 from commons.linked_list import LinkedList
 
 testcases_kth_to_last = [

@@ -2,7 +2,7 @@ import random
 import string
 import pytest
 
-from ctci.chapter1.arrays_strings.is_unique import SolutionUnique
+from ctci.chapter1.arrays_strings.p01_is_unique import SolutionUnique
 
 
 def get_testdata():

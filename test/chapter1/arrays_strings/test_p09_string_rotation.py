@@ -1,6 +1,6 @@
 import pytest
 
-from ctci.chapter1.arrays_strings.string_rotation import SolutionStringRotation
+from ctci.chapter1.arrays_strings.p09_string_rotation import SolutionStringRotation
 
 
 def get_testcases():

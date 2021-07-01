@@ -1,6 +1,6 @@
 import pytest
 
-from chapter2.linked_lists.delete_middle_node import SolutionDeleteMiddleNode
+from chapter2.linked_lists.p03_delete_middle_node import SolutionDeleteMiddleNode
 from commons.linked_list import LinkedList, Node
 
 

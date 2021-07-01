@@ -1,5 +1,5 @@
 import pytest
-from ctci.chapter1.arrays_strings.urlify import SolutionURLify
+from ctci.chapter1.arrays_strings.p03_urlify import SolutionURLify
 
 
 def get_testdata():
