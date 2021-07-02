@@ -39,7 +39,7 @@ class LinkedList:
         return ' -> '.join(nodes)
 
     def __hash__(self) -> int:
-        return super().__hash__()
+        return self.head.__hash__()
 
     def clear(self) -> None:
         self.head = None
