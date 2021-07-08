@@ -20,3 +20,8 @@ class TestSolutionSumLists:
     def test_sum_lists(self, numlist1: LinkedList, numlist2: LinkedList, expected_sumlist: LinkedList):
         sumlist = self.solution.sum_lists(numlist1, numlist2)
         assert sumlist == expected_sumlist
+
+    @pytest.mark.parametrize('numlist1, numlist2, expected_sumlist', sum_list_tests)
+    def test_sum_lists_followup(self, numlist1: LinkedList, numlist2: LinkedList, expected_sumlist: LinkedList):
+        sumlist = self.solution.sum_lists_followup(numlist1, numlist2)
+        assert sumlist == expected_sumlist
