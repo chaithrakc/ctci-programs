@@ -17,19 +17,19 @@ class SolutionSumListsFollowUp:
         num1_node, num2_node = self.__padding_lists(num1_node, num2_node)
         sumlist = LinkedList()
         sumlist.head = Node(0)  # dummy node
-        carry = self.__addlists(num1_node, num2_node, sumlist.head)
+        carry = self.__sumlists_helper(num1_node, num2_node, sumlist.head)
         if carry > 0:
             sumlist.head.data = carry  # removing dummy head
         else:
             sumlist.head = sumlist.head.next
         return sumlist
 
-    def __addlists(self, node1: Node, node2: Node, cur_node: Node) -> int:
+    def __sumlists_helper(self, node1: Node, node2: Node, cur_node: Node) -> int:
         if not node1 and not node2:
             return 0
         cur_node.next = Node(0)  # dummy data
-        carry = self.__addlists(node1.next if node1 else None, node2.next if node2 else None, cur_node.next)
-        num1, num2 = node1.data if node1 else 0, node2.data if node2 else 0
+        carry = self.__sumlists_helper(node1.next if node1 else None, node2.next if node2 else None, cur_node.next)
+        num1, num2 = node1.data, node2.data
         carry, out = divmod(num1 + num2 + carry, 10)
         cur_node.next.data = out
         return carry
@@ -37,17 +37,17 @@ class SolutionSumListsFollowUp:
     def __padding_lists(self, node1: Node, node2: Node):
         head1 = node1
         head2 = node2
-        while node1 or node2:
-            if node1:
-                node1 = node1.next
-            else:
-                new_node = Node(0)
-                new_node.next = head1
-                head1 = new_node
-            if node2:
-                node2 = node2.next
-            else:
-                new_node = Node(0)
-                new_node.next = head2
-                head2 = new_node
+        while node1 and node2:
+            node1 = node1.next
+            node2 = node2.next
+        head2 = self.__insertbefore(head2, node1)  # pad shorter list2 with zeroes
+        head1 = self.__insertbefore(head1, node2)  # pad shorter list1 with zeroes
         return head1, head2
+
+    def __insertbefore(self, head: Node, cur_node: Node):
+        while cur_node:
+            new_node = Node(0)
+            new_node.next = head
+            head = new_node
+            cur_node = cur_node.next
+        return head
