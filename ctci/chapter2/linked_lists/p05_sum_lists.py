@@ -31,3 +31,20 @@ class SolutionSumLists:
             sum_node.next = Node(carry)
         sumlist.head = sumlist.head.next  # Return dummy head's next node.
         return sumlist
+
+    def __sum_lists_helper(self, node1: Node, node2: Node, carry_over: int):
+        if not node1 and not node2 and not carry_over:
+            return None
+        num1 = node1.data if node1 else 0
+        num2 = node2.data if node2 else 0
+        carry_over, out = divmod(num1 + num2 + carry_over, 10)
+        sum_node = Node(out)
+        more = self.__sum_lists_helper(node1.next if node1 else None, node2.next if node2 else None, carry_over)
+        sum_node.next = more
+        return sum_node
+
+    def sum_lists_recusive(self, head1: Node, head2: Node):
+        sumnode = self.__sum_lists_helper(head1, head2, 0)
+        sumlist = LinkedList()
+        sumlist.head = sumnode
+        return sumlist
