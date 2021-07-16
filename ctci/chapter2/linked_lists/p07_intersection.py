@@ -12,5 +12,15 @@ from commons.linked_list import Node
 
 
 class SolutionIntersection:
-    def get_intersection_node(self, head1: Node, head2: Node) -> Node:
-        pass
+    # using set : O(n+m)
+    def get_intersection_node(self, node1: Node, node2: Node) -> Node:
+        nodes = set()
+        while node1:
+            nodes.add(node1)
+            node1 = node1.next
+        while node2:
+            if node2 in nodes:
+                return node2
+            nodes.add(node2)
+            node2 = node2.next
+        return None
