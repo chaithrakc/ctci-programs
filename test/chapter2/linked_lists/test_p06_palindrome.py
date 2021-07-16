@@ -27,5 +27,5 @@ class TestSolutionPalindrome:
         assert self.solution.ispalindrome_iterative(linkedlist.head) == is_palindrome
 
     @pytest.mark.parametrize('linkedlist, is_palindrome', palindrome_tests)
-    def test_ispalindrome_recursive(self, linkedlist, is_palindrome):
-        assert self.solution.ispalindrome_recursive(linkedlist.head) == is_palindrome
+    def test_ispalindrome_recurse(self, linkedlist, is_palindrome):
+        assert self.solution.ispalindrome_recurse(linkedlist.head) == is_palindrome

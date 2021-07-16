@@ -52,5 +52,23 @@ class SolutionPalindrome:
             node = node.next
         return True
 
-    def ispalindrome_recursive(self, head: Node) -> bool:
-        pass
+    # Recursive Approach : O(n + n)
+    def ispalindrome_recurse(self, head: Node) -> bool:
+        size = self.__get_length(head)
+        result = self.__ispalindrome_helper(head, size)
+        return result[1]
+
+    def __ispalindrome_helper(self, node: Node, length: int) -> tuple:
+        if length == 0 or length == 1:
+            return (node.next, True) if length == 1 else (node, True)
+        back_node, result = self.__ispalindrome_helper(node.next, length - 2)
+        if back_node.data != node.data:
+            return back_node.next, False
+        return back_node.next, result
+
+    def __get_length(self, node: Node) -> int:
+        length = 0
+        while node:
+            length = length + 1
+            node = node.next
+        return length
