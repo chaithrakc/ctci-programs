@@ -27,6 +27,30 @@ class SolutionPalindrome:
             node2 = node2.next
         return not node1 and not node2
 
-    def is_palindrome(self, head: Node) -> bool:
+    # bruteforce approach : O(n^2)
+    def ispalindrome_reverse_compare(self, head: Node) -> bool:
         reverse_head = self.__reverse_and_clone(head)
         return self.__is_equal(head, reverse_head)
+
+    # using stack : O(n)
+    def ispalindrome_iterative(self, head: Node) -> bool:
+        node = head
+        runner = head
+        stack = list()
+        while runner and runner.next:
+            stack.append(node.data)
+            node = node.next
+            runner = runner.next.next
+
+        # skip the middle element : for odd length linkedlist
+        if runner:
+            node = node.next
+
+        while stack:
+            if not node or stack.pop() != node.data:
+                return False
+            node = node.next
+        return True
+
+    def ispalindrome_recursive(self, head: Node) -> bool:
+        pass

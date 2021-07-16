@@ -19,5 +19,13 @@ class TestSolutionPalindrome:
     solution = SolutionPalindrome()
 
     @pytest.mark.parametrize('linkedlist, is_palindrome', palindrome_tests)
-    def test_is_palindrome(self, linkedlist, is_palindrome):
-        assert self.solution.is_palindrome(linkedlist.head) == is_palindrome
+    def test_ispalindrome_reverse_compare(self, linkedlist, is_palindrome):
+        assert self.solution.ispalindrome_reverse_compare(linkedlist.head) == is_palindrome
+
+    @pytest.mark.parametrize('linkedlist, is_palindrome', palindrome_tests)
+    def test_ispalindrome_iterative(self, linkedlist, is_palindrome):
+        assert self.solution.ispalindrome_iterative(linkedlist.head) == is_palindrome
+
+    @pytest.mark.parametrize('linkedlist, is_palindrome', palindrome_tests)
+    def test_ispalindrome_recursive(self, linkedlist, is_palindrome):
+        assert self.solution.ispalindrome_recursive(linkedlist.head) == is_palindrome
