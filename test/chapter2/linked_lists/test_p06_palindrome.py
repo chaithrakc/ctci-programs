@@ -10,8 +10,8 @@ palindrome_tests = [
     (LinkedList('step', 'on', 'no', 'pets'), False),
     (LinkedList(90, 76, 100, 100, 76, 90), True),
     (LinkedList(1, 2, 3, 4), False),
-    (LinkedList(1, 1), True)
-    # (LinkedList(0), True)
+    (LinkedList(1, 2, 2, 1), True),
+    (LinkedList(0), True)
 ]
 
 

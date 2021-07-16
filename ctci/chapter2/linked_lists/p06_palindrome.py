@@ -1,25 +1,32 @@
 '''
 2.6 Palindrome: Implement a function to check if a linked list is a palindrome.
 Hints:#5, #13, #29, #61, #101
+
+https://leetcode.com/problems/palindrome-linked-list/
 '''
 
-from commons.linked_list import Node
+from commons.linked_list import Node, LinkedList
 
 
 class SolutionPalindrome:
-    def is_palindrome(self, node: Node) -> bool:
-        runner = node.next
-        temp_arr = list()
-        temp_arr.append(node.data)
-        while runner and runner.next:
+    def __reverse_and_clone(self, node: Node) -> Node:
+        reversed_list = LinkedList()
+        while node:
+            new_node = Node(node.data)
+            new_node.next = reversed_list.head
+            reversed_list.head = new_node
             node = node.next
-            runner = runner.next.next
-            temp_arr.append(node.data)
-        node = node.next
-        end_index = len(temp_arr) - 1 if temp_arr[len(temp_arr) - 1] == node.data else len(temp_arr) - 2
-        while node and end_index > -1:
-            if node.data != temp_arr[end_index]:
+
+        return reversed_list.head
+
+    def __is_equal(self, node1: Node, node2: Node) -> bool:
+        while node1 and node2:
+            if node1.data != node2.data:
                 return False
-            node = node.next
-            end_index = end_index - 1
-        return True
+            node1 = node1.next
+            node2 = node2.next
+        return not node1 and not node2
+
+    def is_palindrome(self, head: Node) -> bool:
+        reverse_head = self.__reverse_and_clone(head)
+        return self.__is_equal(head, reverse_head)
