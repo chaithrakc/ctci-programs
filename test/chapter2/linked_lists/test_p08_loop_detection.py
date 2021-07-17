@@ -10,12 +10,14 @@ def get_loop_tests():
     test3 = create_loop(LinkedList(1, 2), 0)
     test4 = create_loop(LinkedList(1), -1)
     test5 = create_loop(LinkedList(), -1)
+    test6 = create_loop(LinkedList(1, 2), -1)
     return [
         (test1[0], test1[1]),
         (test2[0], test2[1]),
         (test3[0], test3[1]),
         (test4[0], test4[1]),
-        (test5[0], test5[1])
+        (test5[0], test5[1]),
+        (test6[0], test6[1])
     ]
 
 
@@ -39,4 +41,9 @@ class TestSolutionLoopDetection:
     @pytest.mark.parametrize('head, loop_node', get_loop_tests())
     def test_detect_cycle(self, head: Node, loop_node: Node):
         node = self.solution.detect_cycle(head)
+        assert node == loop_node
+
+    @pytest.mark.parametrize('head, loop_node', get_loop_tests())
+    def test_detect_cycle_runner(self, head: Node, loop_node: Node):
+        node = self.solution.detect_cycle_runner(head)
         assert node == loop_node

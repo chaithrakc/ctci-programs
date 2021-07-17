@@ -8,12 +8,14 @@ Hints:#20, #45, #55, #65, #76, #93, #111, #120, #129
 https://leetcode.com/problems/intersection-of-two-linked-lists/
 
 '''
+from typing import Optional
+
 from commons.linked_list import Node
 
 
 class SolutionIntersection:
     # using set : O(n+m)
-    def find_intersection(self, node1: Node, node2: Node) -> Node:
+    def find_intersection(self, node1: Node, node2: Node) -> Optional[Node]:
         nodes = set()
         while node1:
             nodes.add(node1)
