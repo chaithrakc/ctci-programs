@@ -1,0 +1,2 @@
+class SolutionThreeInOne:
+    pass
