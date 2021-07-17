@@ -20,5 +20,13 @@ from commons.linked_list import Node
 
 
 class SolutionLoopDetection:
+
+    # using set()
     def detect_cycle(self, node: Node) -> Node:
-        pass
+        nodes = set()
+        while node:
+            if node in nodes:
+                return node
+            nodes.add(node)
+            node = node.next
+        return None
