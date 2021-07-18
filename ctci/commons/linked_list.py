@@ -11,14 +11,8 @@ class LinkedList:
     head = None
 
     def __init__(self, *params):
-        if len(params) == 0:
-            self.head = None
-        else:
-            node = Node(params[0])
-            self.head = node
-            for i in range(1, len(params)):
-                node.next = Node(params[i])
-                node = node.next
+        for item in params:
+            self.append_tail(item)
 
     def __eq__(self, other) -> bool:
         node1 = self.head
@@ -74,20 +68,16 @@ class LinkedList:
         prev_node.next = new_node
 
     def append_head(self, data):
-        if self.head is None:
-            self.head = Node(data)
-            return
-        node = self.head
         new_node = Node(data)
-        new_node.next = node
+        new_node.next = self.head
         self.head = new_node
 
     def append_tail(self, data):
-        if self.head is None:
+        if not self.head:
             self.head = Node(data)
             return
         node = self.head
-        while node.next is not None:
+        while node.next:
             node = node.next
         node.next = Node(data)
 
