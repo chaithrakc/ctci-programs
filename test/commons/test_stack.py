@@ -25,6 +25,12 @@ peek_test = [
     (Stack('veritasiam', 'smarter everyday'), 'smarter everyday')
 ]
 
+size_test = [
+    (Stack(1, 2, 3, 4, 5, 6), 6),
+    (Stack('veritasiam', 'smarter everyday'), 2),
+    (Stack(), 0)
+]
+
 
 class TestStack:
 
@@ -56,3 +62,7 @@ class TestStack:
         stack = Stack()
         with pytest.raises(EmptyStackException):
             stack.peek()
+
+    @pytest.mark.parametrize('test_stack, expected_size', size_test)
+    def test_size(self, test_stack: Stack, expected_size: int):
+        assert test_stack.size() == expected_size

@@ -47,6 +47,14 @@ class Stack:
     def isempty(self) -> bool:
         return self.__top is None
 
+    def size(self) -> int:
+        count = 0
+        node = self.__top
+        while node:
+            count = count + 1
+            node = node.next
+        return count
+
     def __repr__(self):
         node = self.__top
         nodes = list()
