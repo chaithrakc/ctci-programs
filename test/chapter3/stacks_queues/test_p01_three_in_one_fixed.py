@@ -1,0 +1,2 @@
+class TestSolutionThreeInOneFixed:
+    pass
