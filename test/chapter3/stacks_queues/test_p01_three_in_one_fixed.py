@@ -6,31 +6,31 @@ from chapter3.stacks_queues.p01_three_in_one_fixed import FixedMultiStack
 from commons.exceptions import FullStackException, EmptyStackException
 
 push_tests = [
-    (FixedMultiStack(6, {1: [1, 2], 2: [], 3: [1]}), {1: [3], 2: [3], 3: [5]},
-     FixedMultiStack(6, {1: [1, 2, 3], 2: [3], 3: [1, 5]})),
-    (FixedMultiStack(2, {1: [], 2: [], 3: []}), {1: [3, 4], 2: [3, 4], 3: [3, 4]},
-     FixedMultiStack(2, {1: [3, 4], 2: [3, 4], 3: [3, 4]}))
+    (FixedMultiStack(6, {0: [1, 2], 1: [], 2: [1]}), {0: [3], 1: [3], 2: [5]},
+     FixedMultiStack(6, {0: [1, 2, 3], 1: [3], 2: [1, 5]})),
+    (FixedMultiStack(2, {0: [], 1: [], 2: []}), {0: [3, 4], 1: [3, 4], 2: [3, 4]},
+     FixedMultiStack(2, {0: [3, 4], 1: [3, 4], 2: [3, 4]}))
 ]
 
 empty_tests = [
-    (FixedMultiStack(6, {1: [1, 2], 2: [], 3: [1]}), 1, False),
-    (FixedMultiStack(6, {1: [1, 2], 2: [], 3: [1]}), 3, False),
-    (FixedMultiStack(6, {1: [1, 2], 2: [], 3: [1]}), 2, True),
-    (FixedMultiStack(2), 3, True)
+    (FixedMultiStack(6, {0: [1, 2], 1: [], 2: [1]}), 0, False),
+    (FixedMultiStack(6, {0: [1, 2], 1: [], 2: [1]}), 2, False),
+    (FixedMultiStack(6, {0: [1, 2], 1: [], 2: [1]}), 1, True),
+    (FixedMultiStack(2), 2, True)
 ]
 
 pop_tests = [
-    (FixedMultiStack(6, {1: [1, 2], 2: [], 3: [1]}), 1, FixedMultiStack(6, {1: [1], 2: [], 3: [1]})),
-    (FixedMultiStack(6, {1: [1, 2], 2: [], 3: [1]}), 3, FixedMultiStack(6, {1: [1, 2], 2: [], 3: []})),
-    (FixedMultiStack(2, {1: [3, 4], 2: [3, 4], 3: [3, 4]}), 2, FixedMultiStack(2, {1: [3, 4], 2: [3], 3: [3, 4]})),
-    (FixedMultiStack(2, {1: [3, 4], 2: [3, 4], 3: [3, 4]}), 3, FixedMultiStack(2, {1: [3, 4], 2: [3, 4], 3: [3]}))
+    (FixedMultiStack(6, {0: [1, 2], 1: [], 2: [1]}), 0, FixedMultiStack(6, {0: [1], 1: [], 2: [1]})),
+    (FixedMultiStack(6, {0: [1, 2], 1: [], 2: [1]}), 2, FixedMultiStack(6, {0: [1, 2], 1: [], 2: []})),
+    (FixedMultiStack(2, {0: [3, 4], 1: [3, 4], 2: [3, 4]}), 1, FixedMultiStack(2, {0: [3, 4], 1: [3], 2: [3, 4]})),
+    (FixedMultiStack(2, {0: [3, 4], 1: [3, 4], 2: [3, 4]}), 2, FixedMultiStack(2, {0: [3, 4], 1: [3, 4], 2: [3]}))
 ]
 
 peek_tests = [
-    (FixedMultiStack(6, {1: [1, 2], 2: [], 3: [1]}), 1, 2),
-    (FixedMultiStack(6, {1: [1, 2], 2: [], 3: [1]}), 3, 1),
-    (FixedMultiStack(2, {1: [3, 4], 2: [3, 4], 3: [3, 4]}), 2, 4),
-    (FixedMultiStack(2, {1: ['vendetta', 'subpoena'], 2: ['a', 'b'], 3: ['x', 'y']}), 1, 'subpoena')
+    (FixedMultiStack(6, {0: [1, 2], 1: [], 2: [1]}), 0, 2),
+    (FixedMultiStack(6, {0: [1, 2], 1: [], 2: [1]}), 2, 1),
+    (FixedMultiStack(2, {0: [3, 4], 1: [3, 4], 2: [3, 4]}), 1, 4),
+    (FixedMultiStack(2, {0: ['vendetta', 'subpoena'], 1: ['a', 'b'], 2: ['x', 'y']}), 0, 'subpoena')
 ]
 
 
@@ -45,7 +45,7 @@ class TestSolutionThreeInOneFixed:
 
     def test_push_fullstack(self):
         with pytest.raises(FullStackException):
-            FixedMultiStack(1, {1: [3, 4], 2: [3, 6], 3: [9, 0]})
+            FixedMultiStack(1, {0: [3, 4], 1: [3, 6], 2: [9, 0]})
 
     @pytest.mark.parametrize('test_stack, stack_num, isempty', empty_tests)
     def test_isempty(self, test_stack: FixedMultiStack, stack_num: int, isempty: bool):
@@ -59,7 +59,7 @@ class TestSolutionThreeInOneFixed:
 
     def test_pop_fullstack(self):
         with pytest.raises(EmptyStackException):
-            FixedMultiStack(1).pop(3)
+            FixedMultiStack(1).pop(2)
 
     @pytest.mark.parametrize('test_stack, stack_num, expected_elem', peek_tests)
     def test_peek(self, test_stack: FixedMultiStack, stack_num: int, expected_elem: Any):
@@ -68,4 +68,4 @@ class TestSolutionThreeInOneFixed:
 
     def test_peek_emptystack(self):
         with pytest.raises(EmptyStackException):
-            FixedMultiStack(1).peek(3)
+            FixedMultiStack(1).peek(2)
