@@ -15,7 +15,7 @@ start at the end of the array and wrap around to the beginning '''
 
 
 class MultiStack:
-    class __StackInfo:
+    class StackInfo:
         ''' stores metadata about stacks '''
 
         def __init__(self, start: int, default_size: int):
@@ -40,7 +40,7 @@ class MultiStack:
         self.data = [None] * (default_size * number_of_stacks)  # max capacity of stack = default size * num of stacks
         self.info = []
         for stack_num in range(number_of_stacks):
-            self.info[stack_num] = self.__StackInfo(stack_num * default_size, default_size)
+            self.info[stack_num] = self.StackInfo(stack_num * default_size, default_size)
         self.__push_bulk(params)
 
     def __push_bulk(self, params) -> None:
@@ -121,7 +121,7 @@ class MultiStack:
         stack_info = self.info[stack_num - 1]
         return self.data[stack_info.top_index()]
 
-    def __is_within_stack_capacity(self, stack_info: __StackInfo, index: int) -> bool:
+    def __is_within_stack_capacity(self, stack_info: StackInfo, index: int) -> bool:
         if index < 0 or index > self.capacity:
             return False
         contiguous_index = index + self.capacity if index < stack_info.start else index
