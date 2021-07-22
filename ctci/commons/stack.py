@@ -65,7 +65,7 @@ class Stack:
 
     def __eq__(self, other) -> bool:
         node1 = self.__top
-        node2 = other.__top
+        node2 = other.top
         while node1 and node2:
             if node1.data != node2.data:
                 return False
